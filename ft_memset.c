@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                            :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elodlim <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 12:30:20 by elodlim           #+#    #+#             */
-/*   Updated: 2024/11/05 12:30:39 by elodlim          ###   ########.fr       */
+/*   Created: 2024/11/16 17:48:55 by elodlim           #+#    #+#             */
+/*   Updated: 2024/11/16 17:51:48 by elodlim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@
 */
 
 //#include "libft.h"
-# include <stddef.h>
-
+#include <stddef.h>
 
 void	*ft_memset(void *s, int c, size_t n)
 {
@@ -37,17 +36,13 @@ void	*ft_memset(void *s, int c, size_t n)
 	return (s);
 }
 
-#include <stdio.h>
+/*#include <stdio.h>
 int main()
 {
     char buffer[6] = "hello";  
-    printf("Avant memset: %s\n", buffer);  // Affichera "hello"
-    
-    // Remplir les 3 premiers caractères du buffer avec 'A'
+    printf("Before memset: %s\n", buffer); 
     ft_memset(buffer, 'A', 3);
-    
-    // Affichage après memset
-    printf("Après memset: %s\n", buffer);  // Affichera "AAAllo"
+    printf("After memset: %s\n", buffer);
     
     return 0;
-}
+}*/
