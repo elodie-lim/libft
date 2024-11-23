@@ -5,3 +5,8 @@
 **@param const void *src
 **@param size_t n
 */
+#include <stddef.h>
+
+void *ft_memmove(void *dest, const void *src, size_t n){
+
+}
