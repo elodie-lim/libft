@@ -19,7 +19,7 @@
 **au nb d octets a ecrire dans la zone memoire
 */
 
-//#include "libft.h"
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

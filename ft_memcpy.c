@@ -16,8 +16,7 @@
 **dans un nouvel emplacement designe par le @param dest
 */
 
-//#include "libft.h"
-#include <stddef.h>
+#include "libft.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {

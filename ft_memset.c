@@ -19,8 +19,7 @@
 **size_t n est le nombre d octets a initialiser dans le bloc de memoire.
 */
 
-//#include "libft.h"
-#include <stddef.h>
+#include "libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {
