@@ -27,7 +27,6 @@ void	*ft_memset(void *s, int c, size_t n)
 
 	if (!s)
 		return (NULL);
-
 	new_s = (unsigned char *) s;
 	while (n > 0)
 	{
