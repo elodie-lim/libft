@@ -47,6 +47,7 @@ void	*ft_calloc(size_t element_count, size_t element_size)
 	return ((void *) memory_block);
 }
 
+/*
 #include <stdio.h>
 #include <limits.h>
 
@@ -76,4 +77,4 @@ int main(){
     free(array);
 
     return (0);
-}
+}*/
