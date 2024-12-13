@@ -29,6 +29,7 @@
 */
 
 #include "libft.h"
+#include <stdlib.h>
 
 char	*ft_strtrim(const char *s1, const char *set)
 {
@@ -55,7 +56,7 @@ char	*ft_strtrim(const char *s1, const char *set)
 
 /*
 #include <stdio.h>
-#include <stdlib.h>
+
 int main()
 {
     const char *s1 = "  james harden  ";

@@ -23,6 +23,7 @@
 */
 
 #include "libft.h"
+#include <stdlib.h>
 
 static int	len_num(long nbr)
 {
@@ -75,7 +76,7 @@ char	*ft_itoa(int n)
 
 /*
 #include <stdio.h>
-#include <stdlib.h>
+
 int main(void)
 {
 

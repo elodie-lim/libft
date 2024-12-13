@@ -30,6 +30,7 @@
 */
 
 #include "libft.h"
+#include <stdlib.h>
 
 static int	ft_count(const char *s, const char c)
 {
@@ -134,7 +135,7 @@ char	**ft_split(const char *s, const char c)
 }
 
 /*#include <stdio.h>
-#include <stdlib.h>
+
 int main()
 {
     char **result;
