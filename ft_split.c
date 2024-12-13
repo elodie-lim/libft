@@ -32,105 +32,99 @@
 #include "libft.h"
 #include <stdlib.h>
 
-static int	ft_count(const char *s, const char c)
+static char		**words(const char *str, char **result, char c);
+static size_t	count_words(const char *str, char c);
+static char		*copy_word(const char *str, int start, int end);
+
+static size_t	count_words(const char *str, char c)
 {
-	int	i;
-	int	new_word;
-	int	count;
+	size_t	count;
+	size_t	i;
 
 	i = 0;
-	new_word = 1;
 	count = 0;
-	while (s[i])
+	while (str[i] != '\0')
 	{
-		if (s[i] == c && !new_word)
-		{
-			new_word = 1;
-		}
-		else if (s[i] != c && new_word)
-		{
-			new_word = 0;
+		if (str[i] != c && (str[i + 1] == c || str[i + 1] == '\0'))
 			count++;
-		}
 		i++;
 	}
 	return (count);
 }
 
-static char	**ft_alloc(int count)
+static void	free_result(char **result, size_t count)
 {
-	char	**result;
-	int		i;
-	int		j;
+	size_t	i;
 
-	result = ft_calloc(1 + count, sizeof(char *));
-	if (!result)
-		return (NULL);
 	i = 0;
 	while (i < count)
 	{
-		result[i] = ft_calloc(1024, sizeof(char));
-		if (!result[i])
+		free(result[i]);
+		i++;
+	}
+	free(result);
+}
+
+static char	**words(const char *str, char **result, char c)
+{
+	size_t	count;
+	size_t	i;
+	size_t	start;
+
+	i = 0;
+	count = 0;
+	while (str[i] != '\0' && (count < count_words(str, c)))
+	{
+		if (str[i] != c)
 		{
-			j = 0;
-			while (j < i)
+			start = i;
+			while (!(str[i + 1] == c || str[i + 1] == '\0'))
+				i++;
+			result[count] = copy_word(str, start, i + 1);
+			if (!result[count])
 			{
-				free(result[j]);
-				j++;
+				free_result(result, count);
+				return (NULL);
 			}
-			return (NULL);
+			count++;
 		}
 		i++;
 	}
-	result[i] = NULL;
 	return (result);
 }
 
-static void	ft_split_fill(const char *s, const char c, char **result)
+static char	*copy_word(const char *str, int start, int end)
 {
-	int	i;
-	int	j;
-	int	new_word;
-	int	count;
+	char	*word;
+	size_t	i;
 
-	i = -1;
-	j = 0;
-	count = 0;
-	new_word = 1;
-	while (s[++i])
+	i = 0;
+	word = malloc((end - start + 1) * sizeof(char));
+	if (!word)
+		return (NULL);
+	while (start < end)
 	{
-		if (s[i] == c && !new_word)
-		{
-			new_word = 1;
-			result[count++][j] = '\0';
-			j = 0;
-		}
-		else if (s[i] != c)
-		{
-			new_word = 0;
-			result[count][j++] = s[i];
-			if (s[i + 1] == '\0')
-				result[count][j] = '\0';
-		}
+		word[i] = str[start];
+		i++;
+		start++;
 	}
+	word[i] = '\0';
+	return (word);
 }
 
-char	**ft_split(const char *s, const char c)
+char	**ft_split(const char *s, char c)
 {
 	char	**result;
+	int		size;
 
-	if (s == NULL)
+	if (!s)
 		return (NULL);
-	if (ft_strlen(s) == 0)
-	{
-		result = malloc(sizeof(char *));
-		result[0] = NULL;
-		return (result);
-	}
-	result = ft_alloc(ft_count(s, c));
+	size = count_words(s, c);
+	result = malloc(sizeof(char *) * (size + 1));
 	if (!result)
 		return (NULL);
-	ft_split_fill(s, c, result);
+	result[size] = NULL;
+	result = words(s, result, c);
 	return (result);
 }
 
