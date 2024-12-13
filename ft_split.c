@@ -10,108 +10,130 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+** ft_split - Divise une chaine de caracteres en plusieurs sous-chaines
+** selon un caractere delimiteur specifie.
+**
+** La fonction prend une chaine d'entree (s) et un caractere delimitateur (c). 
+** Elle retourne un tableau de sous-chaines (tableau de pointeurs vers des 
+** chaines de caracteres), chaque sous-chaine correspondant a un mot 
+** separe par le caractere delimiteur.
+**
+** @param s : La chaine d'entree a diviser. Ne doit pas etre NULL.
+** @param c : Le caractere delimitant les sous-chaines. 
+**
+** @return Un tableau de chaines de caracteres (char **), chaque element 
+** du tableau correspondant a un mot extrait de la chaine d'entree. 
+** Le tableau se termine par un pointeur NULL.
+** Si une erreur d'allocation memoire survient ou si l'entree est NULL, 
+** la fonction retourne NULL.
+*/
+
 #include "libft.h"
 
-static int	count(const char *s, char c)
+static int	ft_count(const char *s, const char c)
 {
 	int	i;
-	int	in_word;
-	int	cnt;
+	int	new_word;
+	int	count;
 
 	i = 0;
-	in_word = 0;
-	cnt = 0;
+	new_word = 1;
+	count = 0;
 	while (s[i])
 	{
-		if (s[i] == c && in_word)
+		if (s[i] == c && !new_word)
 		{
-			in_word = 0;
+			new_word = 1;
 		}
-		else if (s[i] != c && !in_word)
+		else if (s[i] != c && new_word)
 		{
-			in_word = 1;
-			cnt++;
+			new_word = 0;
+			count++;
 		}
 		i++;
 	}
-	return (cnt);
+	return (count);
 }
 
-static char	**alloc(int cnt)
+static char	**ft_alloc(int count)
 {
-	char	**res;
+	char	**result;
 	int		i;
+	int		j;
 
-	res = ft_calloc(cnt + 1, sizeof(char *));
-	if (!res)
+	result = ft_calloc(1 + count, sizeof(char *));
+	if (!result)
 		return (NULL);
 	i = 0;
-	while (i < cnt)
+	while (i < count)
 	{
-		res[i] = ft_calloc(1024, sizeof(char));
-		if (!res[i])
+		result[i] = ft_calloc(1024, sizeof(char));
+		if (!result[i])
 		{
-			while (i--)
-				free(res[i]);
+			j = 0;
+			while (j < i)
+			{
+				free(result[j]);
+				j++;
+			}
 			return (NULL);
 		}
 		i++;
 	}
-	res[i] = NULL;
-	return (res);
+	result[i] = NULL;
+	return (result);
 }
 
-static void	fill(const char *s, char c, char **res)
+static void	ft_split_fill(const char *s, const char c, char **result)
 {
 	int	i;
 	int	j;
-	int	in_word;
-	int	idx;
+	int	new_word;
+	int	count;
 
-	i = 0;
+	i = -1;
 	j = 0;
-	idx = 0;
-	in_word = 0;
-	while (s[i])
+	count = 0;
+	new_word = 1;
+	while (s[++i])
 	{
-		if (s[i] == c && in_word)
+		if (s[i] == c && !new_word)
 		{
-			in_word = 0;
-			res[idx++][j] = '\0';
+			new_word = 1;
+			result[count++][j] = '\0';
 			j = 0;
 		}
 		else if (s[i] != c)
 		{
-			in_word = 1;
-			res[idx][j++] = s[i];
+			new_word = 0;
+			result[count][j++] = s[i];
 			if (s[i + 1] == '\0')
-				res[idx][j] = '\0';
+				result[count][j] = '\0';
 		}
-		i++;
 	}
 }
 
-char	**ft_split(const char *s, char c)
+char	**ft_split(const char *s, const char c)
 {
-	char	**res;
+	char	**result;
 
-	if (!s)
+	if (s == NULL)
 		return (NULL);
 	if (ft_strlen(s) == 0)
 	{
-		res = malloc(sizeof(char *));
-		res[0] = NULL;
-		return (res);
+		result = malloc(sizeof(char *));
+		result[0] = NULL;
+		return (result);
 	}
-	res = alloc(count(s, c));
-	if (!res)
+	result = ft_alloc(ft_count(s, c));
+	if (!result)
 		return (NULL);
-	fill(s, c, res);
-	return (res);
+	ft_split_fill(s, c, result);
+	return (result);
 }
 
-/*
-#include <stdio.h>
+/*#include <stdio.h>
 #include <stdlib.h>
 int main()
 {
@@ -144,5 +166,4 @@ int main()
     }
 
     return 0;
-}
-*/
+}*/
