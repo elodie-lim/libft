@@ -14,13 +14,8 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	if (!s)
-		return ;
-	while (*s)
-	{
-		ft_putchar_fd(*s, fd);
-		s++;
-	}
+	if (s && fd != -1)
+		write(fd, s, ft_strlen(s));
 }
 
 /*
