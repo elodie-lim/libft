@@ -21,50 +21,27 @@
 #include "libft.h"
 #include <stdlib.h>
 
-static void	*clean_up(t_list *current_node, void (*del)(void *))
-{
-	t_list	*temp;
-
-	while (current_node)
-	{
-		temp = current_node->next;
-		ft_lstdelone(current_node, del);
-		current_node = temp;
-	}
-	return (NULL);
-}
-
-static t_list	*add_node(t_list *new_node, t_list **current, t_list **first)
-{
-	if (!(*first))
-	{
-		*first = new_node;
-		*current = new_node;
-	}
-	else
-	{
-		(*current)->next = new_node;
-		*current = new_node;
-	}
-	return (new_node);
-}
-
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*first_node;
-	t_list	*current_node;
-	t_list	*new_node;
+	t_list		*new_lst;
+	t_list		*new_elem;
+	void		*content;
 
-	if (!lst || !f || !del)
+	if (!f || !del || !lst)
 		return (NULL);
-	first_node = NULL;
+	new_lst = NULL;
 	while (lst)
 	{
-		new_node = ft_lstnew((*f)(lst->content));
-		if (!new_node)
-			return (clean_up(first_node, del));
-		add_node(new_node, &current_node, &first_node);
+		content = f(lst->content);
+		new_elem = ft_lstnew(content);
+		if (!new_elem)
+		{
+			free(content);
+			ft_lstclear(&new_lst, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new_lst, new_elem);
 		lst = lst->next;
 	}
-	return (first_node);
+	return (new_lst);
 }
