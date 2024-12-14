@@ -11,14 +11,12 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	if (s != NULL)
-	{
-		ft_putstr_fd(s, fd);
-		ft_putstr_fd("\n", fd);
-	}
+	ft_putstr_fd(s, fd);
+	write(fd, "\n", 1);
 }
 
 /*
