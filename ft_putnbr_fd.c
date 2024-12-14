@@ -15,6 +15,8 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
+	if (fd == -1)
+		return ;
 	if (n == -2147483648)
 		write (fd, "-2147483648", 11);
 	else if (n >= 0 && n <= 9)

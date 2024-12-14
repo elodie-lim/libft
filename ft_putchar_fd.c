@@ -15,7 +15,8 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	write(fd, &c, sizeof(char));
+	if (ft_isascii(c) && fd != -1)
+		write(fd, &c, 1);
 }
 
 /*

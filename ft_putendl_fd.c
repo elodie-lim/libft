@@ -15,8 +15,11 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	ft_putstr_fd(s, fd);
-	write(fd, "\n", 1);
+	if (s != NULL)
+	{
+		ft_putstr_fd(s, fd);
+		ft_putstr_fd("\n", fd);
+	}
 }
 
 /*
@@ -26,7 +29,7 @@ int     main(int ac, char *av[])
         int     fd;
 
         fd = open(av[1], O_WRONLY);
-        ft_putendl_fd("blabla", fd);
+        ft_putendl_fd("kelly_oubre", fd);
         close(fd);
         return (0);
 }
