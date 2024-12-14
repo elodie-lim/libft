@@ -27,21 +27,19 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	size_t	i;
-	size_t	length;
+	size_t	count;
 
-	length = ft_strlen(src);
-	if (!dst)
-		return (length);
-	i = 0;
-	while (i + 1 < size && src[i])
+	count = 0;
+	if (size)
 	{
-		dst[i] = src[i];
-		i++;
+		while (count < size - 1 && src[count])
+		{
+			dst[count] = src[count];
+			count++;
+		}
+		dst[count] = '\0';
 	}
-	if (i < size)
-		dst[i] = '\0';
-	return (length);
+	return (ft_strlen(src));
 }
 
 /*
