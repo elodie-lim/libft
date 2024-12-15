@@ -48,80 +48,79 @@ static size_t	count_words(const char *str, char c)
 	return (count);
 }
 
-static void	free_result(char **result, size_t count)
+void	free_tab(char **tab)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (i < count)
+	if (!tab)
+		return ;
+	while (tab[i])
 	{
-		free(result[i]);
+		free(tab[i]);
 		i++;
 	}
-	free(result);
+	free(tab);
 }
 
-static char	*copy_word(const char *str, int start, int end)
+static void	fill_tab(char *tab, char const *s, char c)
 {
-	char	*word;
 	size_t	i;
 
 	i = 0;
-	word = malloc((end - start + 1) * sizeof(char));
-	if (!word)
-		return (NULL);
-	while (start < end)
+	while (s[i] && s[i] != c)
 	{
-		word[i] = str[start];
+		tab[i] = s[i];
 		i++;
-		start++;
 	}
-	word[i] = '\0';
-	return (word);
+	tab[i] = '\0';
 }
 
-static char	**words(const char *str, char **result, char c)
+static int	fill_reslt(char **rslt, char const *s, char c)
 {
-	size_t	count;
-	size_t	i;
-	size_t	start;
+	size_t		i;
+	size_t		j;
+	size_t		count;
 
 	i = 0;
-	count = 0;
-	while (str[i] != '\0' && (count < count_words(str, c)))
+	j = 0;
+	while (s[i])
 	{
-		if (str[i] != c)
-		{
-			start = i;
-			while (!(str[i + 1] == c || str[i + 1] == '\0'))
-				i++;
-			result[count] = copy_word(str, start, i + 1);
-			if (!result[count])
-			{
-				free_result(result, count);
-				return (NULL);
-			}
+		count = 0;
+		while (s[i + count] && s[i + count] != c)
 			count++;
+		if (count > 0)
+		{
+			rslt[j] = malloc(sizeof(char) * (count + 1));
+			if (!rslt[j])
+				return (1);
+			fill_tab(rslt[j++], &s[i], c);
+			i += count;
 		}
-		i++;
+		else
+			i++;
 	}
-	return (result);
+	rslt[j] = NULL;
+	return (0);
 }
 
-char	**ft_split(const char *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	char	**result;
-	int		size;
+	size_t		words;
+	char		**rslt;
 
 	if (!s)
 		return (NULL);
-	size = count_words(s, c);
-	result = malloc(sizeof(char *) * (size + 1));
-	if (!result)
+	words = count_words(s, c);
+	rslt = malloc(sizeof(char *) * (words + 1));
+	if (!rslt)
 		return (NULL);
-	result[size] = NULL;
-	result = words(s, result, c);
-	return (result);
+	if (fill_reslt(rslt, s, c) == 1)
+	{
+		free_tab(rslt);
+		return (NULL);
+	}
+	return (rslt);
 }
 
 /*#include <stdio.h>
