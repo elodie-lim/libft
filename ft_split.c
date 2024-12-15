@@ -61,6 +61,25 @@ static void	free_result(char **result, size_t count)
 	free(result);
 }
 
+static char	*copy_word(const char *str, int start, int end)
+{
+	char	*word;
+	size_t	i;
+
+	i = 0;
+	word = malloc((end - start + 1) * sizeof(char));
+	if (!word)
+		return (NULL);
+	while (start < end)
+	{
+		word[i] = str[start];
+		i++;
+		start++;
+	}
+	word[i] = '\0';
+	return (word);
+}
+
 static char	**words(const char *str, char **result, char c)
 {
 	size_t	count;
@@ -87,25 +106,6 @@ static char	**words(const char *str, char **result, char c)
 		i++;
 	}
 	return (result);
-}
-
-static char	*copy_word(const char *str, int start, int end)
-{
-	char	*word;
-	size_t	i;
-
-	i = 0;
-	word = malloc((end - start + 1) * sizeof(char));
-	if (!word)
-		return (NULL);
-	while (start < end)
-	{
-		word[i] = str[start];
-		i++;
-		start++;
-	}
-	word[i] = '\0';
-	return (word);
 }
 
 char	**ft_split(const char *s, char c)
