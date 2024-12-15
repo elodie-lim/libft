@@ -32,10 +32,6 @@
 #include "libft.h"
 #include <stdlib.h>
 
-static char		**words(const char *str, char **result, char c);
-static size_t	count_words(const char *str, char c);
-static char		*copy_word(const char *str, int start, int end);
-
 static size_t	count_words(const char *str, char c)
 {
 	size_t	count;
