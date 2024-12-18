@@ -51,9 +51,9 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 
 /*
 #include <stdio.h>
-#include <string.h>
+#include <bsd/string.h>
 
-int main() {
+int main(void) {
     char dst[50] = "Yao";
     const char *src = " Ming";
 

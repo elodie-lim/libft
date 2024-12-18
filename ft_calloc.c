@@ -61,7 +61,7 @@ int main(){
 		return (1);
 	}
 
-	//pout verifier que tous les elements sont initialises a zero
+	//pour verifier que tous les elements sont initialises a zero
 	printf("Array initialized with ft_calloc values:\n");
 	for (size_t i = 0; i < element_count; i++)
 	{

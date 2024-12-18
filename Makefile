@@ -10,8 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
-CC := gcc
-CFLAGS := -Wall -Wextra -Werror
+CC := cc
+CFLAGS := -Wall -Wextra -Werror -g3
 FILE_EXTENSION := .c
 
 NAME := libft.a

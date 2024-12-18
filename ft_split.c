@@ -48,7 +48,7 @@ static size_t	count_words(const char *str, char c)
 	return (count);
 }
 
-void	free_tab(char **tab)
+static void	free_tab(char **tab)
 {
 	int	i;
 
