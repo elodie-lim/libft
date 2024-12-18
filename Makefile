@@ -16,8 +16,7 @@ FILE_EXTENSION := .c
 
 NAME := libft.a
 
-SRC_DIRS := .
-BUILD_DIR := ./build
+SRC_DIRS := .S
 
 SRCS := $(shell find $(SRC_DIRS) -name '*$(FILE_EXTENSION)' -and -not -name '*_bonus$(FILE_EXTENSION)')
 SRCS_BONUS := $(shell find $(SRC_DIRS) -name '*_bonus$(FILE_EXTENSION)')
