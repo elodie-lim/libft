@@ -30,16 +30,19 @@
 
 void	*ft_calloc(size_t element_count, size_t element_size)
 {
-	void	*memory_block;
+	void	*mem;
 
-	if (element_count > SIZE_MAX / element_size)
-		return (0);
-	memory_block = malloc(element_count * element_size);
-	if (!memory_block)
-		return (0);
-	if (memory_block)
-		ft_bzero(memory_block, element_count * element_size);
-	return (memory_block);
+	if (element_size != 0)
+	{
+		if (element_count > 2147483647 / element_size)
+			return (NULL);
+	}
+	mem = malloc(element_count * element_size);
+	if (!mem)
+		return (NULL);
+	else
+		ft_bzero(mem, (element_count * element_size));
+	return (mem);
 }
 
 /*
@@ -49,7 +52,6 @@ void	*ft_calloc(size_t element_count, size_t element_size)
 int main(){
 
 	printf("Unsigned long max value: %lu\n", ULONG_MAX);
-
 
 	size_t element_count = 5;
 	size_t element_size = sizeof(int);
