@@ -50,8 +50,6 @@ void	*ft_calloc(size_t element_count, size_t element_size)
 
 int main(){
 
-	printf("Unsigned long max value: %lu\n", ULONG_MAX);
-
 	size_t element_count = 5;
 	size_t element_size = sizeof(int);
 	int *array = (int *)ft_calloc(element_count, element_size);
