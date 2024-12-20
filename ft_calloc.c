@@ -32,10 +32,9 @@ void	*ft_calloc(size_t element_count, size_t element_size)
 {
 	void	*mem;
 
-	if (element_size != 0)
+	if (element_size != 0 && element_count > 2147483647 / element_size)
 	{
-		if (element_count > 2147483647 / element_size)
-			return (NULL);
+		return (NULL);
 	}
 	mem = malloc(element_count * element_size);
 	if (!mem)
