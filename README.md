@@ -13,7 +13,7 @@ libft/
 ├── Makefile
 ├── libft.h
 ├── ft_*.c
-└── bonus/ (if applicable)
+└── _bonus.c
 ```
 
 ## Compilation
