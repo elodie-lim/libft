@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
 void	ft_putnbr_fd(int n, int fd)
 {
@@ -33,16 +32,3 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd((n % 10), fd);
 	}
 }
-
-/*
-#include <fcntl.h>
-int     main(int ac, char *av[])
-{
-        int     fd;
-
-        fd = open(av[1], O_WRONLY);
-        ft_putnbr_fd(-2147483648, fd);
-        close(fd);
-        return (0);
-}
-*/

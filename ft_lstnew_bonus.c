@@ -11,10 +11,10 @@
 /* ************************************************************************** */
 
 /*
-**alloue avec malloc et renvoie un nouvel element
-**la variable membre 'content' est initialisee a l'aide
-**de la valeur du parametre 'content'. La variable 'next' est 
-**initialisee a NULL.
+**Allocates memory with malloc and returns a new element.
+**The 'content' member variable is initialized with the value
+**of the 'content' parameter. The 'next' variable is
+**initialized to NULL.
 */
 
 #include "libft.h"

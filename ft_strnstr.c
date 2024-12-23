@@ -11,16 +11,17 @@
 /* ************************************************************************** */
 
 /*
-**La fct recherche la premiere occurence de la sous-chaine
-**'little' ds la chaine 'big' jusqu a une certaine
-**longueur 'len'
-**@param const char *big la chaine ds laquelle on 
-**cherche la sous-chaine 
-**@param const char *little la ss-chaine a rechercher
-**@param size_t len la longueur max de recherche ds 'big'
-**@return un pointeur vers le debut de la premiere occurence
-**de 'little' ds 'big' ou NULL si aucun occurence
+**The function searches for the last occurrence of a given character
+**c in a string s. If it finds the character, it returns 
+**a pointer to that position
+**in the string. Otherwise, it returns NULL.
+**
+**@param const char *s: the base string
+**@param int c: the character whose last occurrence is being searched for
+**@return: a pointer to the address of the last occurrence of the character, 
+**or NULL if c is not found
 */
+
 #include "libft.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
@@ -46,22 +47,3 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return ((void *) 0);
 }
-
-/*
-#include <stdio.h>
-#include <string.h>
-
-int main() {
-    const char *big = "i have no enemies";
-    const char *little = "no";
-
-    printf("Searching for 'no' in 'i have no enemies' (max 20 characters):\n");
-    
-    char *ft_result = ft_strnstr(big, little, 20);
-    //char *std_result = strnstr(big, little, 20);
-
-    printf("ft_strnstr: %s\n", ft_result ? ft_result : "NULL");
-    //printf("strnstr:    %s\n", std_result ? std_result : "NULL");
-
-    return 0;
-}*/

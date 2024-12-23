@@ -6,20 +6,17 @@
 /*   By: elodlim <elodlim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 01:01:07 by elodlim           #+#    #+#             */
-/*   Updated: 2024/12/14 03:15:53 by elodlim          ###   ########.fr       */
+/*   Updated: 2024/12/23 02:43:42 by elodlim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** Cree une copie d'une chaine de caracteres.
+** Creates a copy of a string.
 ** 
-** @param s La chaine de caracteres a copier.
-** @return Un pointeur vers une nouvelle chaine de caracteres 
-**contenant la copie,
-**         ou NULL si l'allocation de memoire echoue.
+** @param s: The string to copy.
+** @return A pointer to a new string containing the copy,
+**         or NULL if memory allocation fails.
 */
-
-#include <stdlib.h>
 
 #include "libft.h"
 
@@ -35,25 +32,3 @@ char	*ft_strdup(const char *s)
 	ft_strlcpy(dest, s, size);
 	return (dest);
 }
-
-/*
-#include <stdio.h>
-
-int main(void)
-{
-    const char *source = "Yao Ming";
-    char *copy;
-
-    copy = ft_strdup(source);
-    if (!copy)
-    {
-        printf("Memory allocation failed.\n");
-        return (1);
-    }
-
-    printf("Original string: %s\n", source);
-    printf("Copied string: %s\n", copy);
-
-    free(copy);
-    return (0);
-}*/

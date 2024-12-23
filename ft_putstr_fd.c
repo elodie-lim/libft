@@ -11,22 +11,8 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
 void	ft_putstr_fd(char *s, int fd)
 {
 	write(fd, s, ft_strlen(s));
 }
-
-/*
-#include <fcntl.h>
-int     main(int ac, char *av[])
-{
-        int     fd;
-
-        fd = open(av[1], O_RDWR);
-        ft_putstr_fd("\nend!", fd);
-        close(fd);
-		return (0);
-}
-*/

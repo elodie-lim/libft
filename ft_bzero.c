@@ -11,12 +11,12 @@
 /* ************************************************************************** */
 
 /*
-**La fonction permet de remplir les n premiers octets 
-**de la zone memoire pointee par s par des 0
-**Elle prend en parametre un pointeur s 
-**qui pointe vers le debut de l adresse
-**memoire a remplir, et un size_t n qui correspond 
-**au nb d octets a ecrire dans la zone memoire
+** This function fills the first n bytes of the memory 
+** area pointed to by s with zeros. 
+** It takes as parameters a pointer s, which points 
+** to the beginning of the memory address to fill, 
+** and a size_t n, which specifies the number of bytes 
+** to write to the memory area.
 */
 
 #include "libft.h"

@@ -11,26 +11,25 @@
 /* ************************************************************************** */
 
 /*
-** ft_split - Divise une chaine de caracteres en plusieurs sous-chaines
-** selon un caractere delimiteur specifie.
+** ft_split - Splits a string into multiple substrings
+** based on a specified delimiter character.
 **
-** La fonction prend une chaine d'entree (s) et un caractere delimitateur (c). 
-** Elle retourne un tableau de sous-chaines (tableau de pointeurs vers des 
-** chaines de caracteres), chaque sous-chaine correspondant a un mot 
-** separe par le caractere delimiteur.
+** The function takes an input string (s) and a delimiter character (c). 
+** It returns an array of substrings (an array of pointers to strings),
+** where each substring corresponds to a word 
+**separated by the delimiter character.
 **
-** @param s : La chaine d'entree a diviser. Ne doit pas etre NULL.
-** @param c : Le caractere delimitant les sous-chaines. 
+** @param s: The input string to split. It must not be NULL.
+** @param c: The character that separates the substrings. 
 **
-** @return Un tableau de chaines de caracteres (char **), chaque element 
-** du tableau correspondant a un mot extrait de la chaine d'entree. 
-** Le tableau se termine par un pointeur NULL.
-** Si une erreur d'allocation memoire survient ou si l'entree est NULL, 
-** la fonction retourne NULL.
+** @return An array of strings (char **), where each element 
+** of the array corresponds to a word extracted from the input string. 
+** The array is terminated by a NULL pointer.
+** If a memory allocation error occurs or if the input is NULL, 
+** the function returns NULL.
 */
 
 #include "libft.h"
-#include <stdlib.h>
 
 static size_t	count_words(const char *str, char c)
 {
@@ -122,38 +121,3 @@ char	**ft_split(char const *s, char c)
 	}
 	return (rslt);
 }
-
-/*#include <stdio.h>
-
-int main()
-{
-    char **result;
-    int i;
-
-    result = ft_split("san diego", ' ');
-
-    if (result)
-    {
-        i = 0;
-        while (result[i] != NULL)
-        {
-            printf("word %d: '%s'\n", i + 1, result[i]);
-            i++;
-        }
-
-        //free memory
-        i = 0;
-        while (result[i])
-        {
-            free(result[i]);
-            i++;
-        }
-        free(result);
-    }
-    else
-    {
-        printf("error: memory allocation failed or invalid input.\n");
-    }
-
-    return 0;
-}*/

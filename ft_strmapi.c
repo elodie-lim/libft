@@ -11,23 +11,21 @@
 /* ************************************************************************** */
 
 /*
-**La fonction ft_strmapi() applique une fonction donnee en parametre
-**a chaque caractere d'une chaine de caracteres pour en creer une
-**nouvelle chaine modifiee.
+**The ft_strmapi() function applies a given function to each character 
+**of a string to create a new modified string.
 **
-**@param const char *s : La chaine d'entree a traiter.
-**@param char (*f)(unsigned int, char) : Un pointeur vers une 
-**fonction prenant en parametre un index (unsigned int) et 
-**un caractere (char), et retournant un caractere modifie.
+**@param const char *s: The input string to process.
+**@param char (*f)(unsigned int, char): A pointer to a function that 
+**takes an index (unsigned int) and a character (char) as parameters, 
+**and returns a modified character.
 **
-**@return char* : La fonction retourne un pointeur vers 
-**la nouvelle chaine contenant les caracteres modifies. 
-**Si une erreur survient (chaine d'entree NULL, allocation 
-**memoire echouee), elle retourne NULL.
+**@return char*: The function returns a pointer to 
+**the new string containing the modified characters. 
+**If an error occurs (NULL input string, memory allocation failure), 
+**it returns NULL.
 */
 
 #include "libft.h"
-#include <stdlib.h>
 
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
@@ -48,34 +46,3 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 	str[i] = '\0';
 	return (str);
 }
-
-/*
-#include <stdio.h>
-
-char transform(unsigned int i, char c)
-{
-    if (i % 2 == 0)
-        return c - 32;
-    return c;
-}
-
-int main(void)
-{
-    const char *original = "kelly_oubre";
-    char *result;
-
-    result = ft_strmapi(original, transform);
-
-    if (result)
-    {
-        printf("Original : %s\n", original);
-        printf("Modified : %s\n", result);
-        free(result); //libere la memoire allouee
-    }
-    else
-    {
-        printf("An error has occured.\n");
-    }
-
-    return 0;
-}*/

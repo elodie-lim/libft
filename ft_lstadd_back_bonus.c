@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 /*
-**ajoute l'element 'new' a la fin de la liste
+**Adds the 'new' element to the end of the list
 */
 
 #include "libft.h"

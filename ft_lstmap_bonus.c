@@ -11,15 +11,14 @@
 /* ************************************************************************** */
 
 /*
-**Itere sur la liste 'lst' et applique la fonction 'f'
-**au contenu de chaque element. Cree une nouvelle liste
-**resultant des applications successives de 'f'. 
-**La fonction 'del' est la pour detruire le contenu d'un
-**element si necessaire.
+**Iterates over the 'lst' list and applies the 'f' function
+**to the content of each element. Creates a new list
+**resulting from the successive applications of 'f'.
+**The 'del' function is used to destroy the content of an
+**element if necessary.
 */
 
 #include "libft.h"
-#include <stdlib.h>
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {

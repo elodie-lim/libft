@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 
 /*
-**La fct a pour but de copier un bloc de memoire specifie
-**par le @param source dont la taille est specifiee par @param size
-**dans un nouvel emplacement designe par le @param dest
+**The function aims to copy a memory block specified
+**by the @param source, with the size specified by @param size,
+**into a new location designated by the @param dest.
 */
 
 #include "libft.h"
@@ -32,23 +32,3 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	}
 	return (dst);
 }
-
-/*#include <stdio.h>
-#include <string.h>
-
-void	*ft_memcpy(void *dst, const void *src, size_t n);
-
-int main(void)
-{
-    char src[] = "test";
-    char dest[10];
-	char dest2[10];
-
-    ft_memcpy(dest, src, 5);
-	memcpy(dest2, src, 5);
-    printf("source: %s\n", src);
-    printf("destination: %s\n", dest);
-	printf("dest with original memcpy: %s\n", dest2);
-
-    return 0;
-}*/

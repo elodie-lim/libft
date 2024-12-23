@@ -17,7 +17,6 @@ FILE_EXTENSION := .c
 NAME := libft.a
 
 SRC_DIRS := .
-BUILD_DIR := ./build
 
 SRCS := $(shell find $(SRC_DIRS) -name '*$(FILE_EXTENSION)' -and -not -name '*_bonus$(FILE_EXTENSION)')
 SRCS_BONUS := $(shell find $(SRC_DIRS) -name '*_bonus$(FILE_EXTENSION)')
@@ -45,4 +44,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re

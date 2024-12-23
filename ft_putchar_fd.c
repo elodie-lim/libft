@@ -11,21 +11,8 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
 void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
 }
-
-/*
-#include <fcntl.h>
-int	main(int ac, char *av[])
-{
-	int		fd,
-
-	fd = open(av[1], O_WRONLY);
-	ft_putchar_fd('a', fd);
-	close(fd);
-	return(0);
-}*/

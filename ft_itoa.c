@@ -11,19 +11,18 @@
 /* ************************************************************************** */
 
 /*
-**La fonction ft_itoa() convertit un entier de type int 
-**en une chaine de caracteres (string) representant cet entier.
-**Elle gere egalement les entiers negatifs en ajoutant 
-**un '-' au debut de la chaine.
+**The ft_itoa() function converts an integer of type int
+**into a string representing that integer.
+**It also handles negative integers by adding a '-' 
+**at the beginning of the string.
 **
-**@param int n : L'entier a convertir en chaine de caracteres.
-**@return char* : La fonction retourne un pointeur vers la chaine 
-**de caracteres representant l'entier. Si une erreur survient 
-**lors de l'allocation memoire, la fonction retourne NULL.
+**@param int n : The integer to convert into a string.
+**@return char* : The function returns a pointer to the string
+**representing the integer. If an error occurs during memory allocation,
+**the function returns NULL.
 */
 
 #include "libft.h"
-#include <stdlib.h>
 
 static int	len_num(long nbr)
 {
@@ -73,31 +72,3 @@ char	*ft_itoa(int n)
 	result[len] = '\0';
 	return (result);
 }
-
-/*
-#include <stdio.h>
-
-int main(void)
-{
-
-    int numbers[] = {0, -1, 42, -12345, 2147483647, -2147483648};
-    size_t num_tests = sizeof(numbers) / sizeof(numbers[0]);
-
-    for (size_t i = 0; i < num_tests; i++)
-    {
-        int n = numbers[i];
-        char *result = ft_itoa(n);
-        if (result)
-        {
-            printf("ft_itoa(%d) = \"%s\"\n", n, result);
-            free(result); //free allocated memory
-        }
-        else
-        {
-            printf("ft_itoa(%d) failed to allocate memory.\n", n);
-        }
-    }
-
-    return 0;
-}
-*/

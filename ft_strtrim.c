@@ -11,25 +11,24 @@
 /* ************************************************************************** */
 
 /*
-** ft_strtrim - Supprime les caracteres specifies du debut 
-**et de la fin d'une chaine.
-** 
-** La fonction ft_strtrim prend une chaine d'entree (s1) 
-**et une chaine de caracteres (set) contenant
-** les caracteres a retirer. Elle retourne une nouvelle chaine allouee 
-**dynamiquement, qui est une version de s1 sans les caracteres presents 
-**dans set au debut et a la fin.
-** 
-** @param s1 La chaine a trimmer. Ne doit pas etre NULL.
-** @param set Les caracteres a supprimer. Ne doit pas etre NULL.
-** 
-** @return Un pointeur vers la nouvelle chaine allouee dynamiquement 
-**sans les caracteres indesirables.
-**Retourne NULL si une allocation echoue ou si une des entrees NULL.
+** ft_strtrim - Removes specified characters from the beginning
+** and end of a string.
+**
+** The ft_strtrim function takes an input string (s1)
+** and a string of characters (set) containing
+** the characters to remove. It returns a newly dynamically allocated
+** string, which is a version of s1 without the characters present
+** in set at the beginning and end.
+**
+** @param s1: The string to trim. Must not be NULL.
+** @param set: The characters to remove. Must not be NULL.
+**
+** @return: A pointer to the newly dynamically allocated string
+** without the undesirable characters.
+** Returns NULL if an allocation fails or if any of the inputs is NULL.
 */
 
 #include "libft.h"
-#include <stdlib.h>
 
 char	*ft_strtrim(const char *s1, const char *set)
 {
@@ -53,26 +52,3 @@ char	*ft_strtrim(const char *s1, const char *set)
 	ft_strlcpy(result, &s1[start], len + 1);
 	return (result);
 }
-
-/*
-#include <stdio.h>
-
-int main()
-{
-    const char *s1 = "  james harden  ";
-    const char *set = " ";
-    char *trimmed = ft_strtrim(s1, set);
-    
-    if (trimmed)
-    {
-        printf("Original: '%s'\n", s1);
-        printf("Trimmed: '%s'\n", trimmed);
-        free(trimmed);
-    }
-    else
-    {
-        printf("Memory allocation failed or invalid input.\n");
-    }
-    
-    return 0;
-}*/

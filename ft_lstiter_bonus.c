@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 /*
-**Itere sur la liste 'lst' et applique la fonction
-**'f' au contenu de chaque element.
+**Iterates over the 'lst' list and applies the 'f' function
+**to the content of each element.
 */
 
 #include "libft.h"

@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 /*
-**ajoute l'element 'new' au debut de la liste
+**adds 'new' element to start of list
 */
 
 #include "libft.h"

@@ -13,10 +13,10 @@
 /*
 **The memset() function fills the first n bytes of the memory area 
 **pointed to by s with the constant byte c.
-**void *s designe le bloc de memoire a initialiser
-**int c correspond a la valeur a laquelle chaque octet du bloc
-**sera initalise.
-**size_t n est le nombre d octets a initialiser dans le bloc de memoire.
+**void *s designates the memory block to initialize.
+**int c is the value to which each byte of the block 
+**will be initialized.
+**size_t n is the number of bytes to initialize in the memory block.
 */
 
 #include "libft.h"
@@ -34,14 +34,3 @@ void	*ft_memset(void *s, int c, size_t n)
 	}
 	return (s);
 }
-
-/*#include <stdio.h>
-int main()
-{
-    char buffer[6] = "hello";  
-    printf("Before memset: %s\n", buffer); 
-    ft_memset(buffer, 'A', 3);
-    printf("After memset: %s\n", buffer);
-    
-    return 0;
-}*/

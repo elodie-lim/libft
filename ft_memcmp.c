@@ -11,18 +11,18 @@
 /* ************************************************************************** */
 
 /*
-**La fct compare les n premiers octets de deux blocs 
-**de memoire octet par octet et retourne la difference 
-**entre les octets correspondants des blocs de mem 
-**s1 et s2, permettant de savoir si l un des blocs est 
-**'plus petit' ou 'plus gd' que l autre a la position de 
-**la premiere difference.
-**La fct est en undefined behavior qd !s1 ou !s2
-**@param const void *s1 premier bloc de memoire
-**@param const void *s2
-**@param size_t n le nb d octets a comparer
-**@return la difference entre les octets 
-**correspondants de s1 et s2
+**The function compares the first n bytes of two memory blocks
+**byte by byte and returns the difference
+**between the corresponding bytes of the memory blocks s1 and s2,
+**allowing to determine if one of the blocks is 'smaller' or 'larger'
+**than the other at the position of the first difference.
+**The function has undefined behavior when either s1 or s2 is NULL.
+**
+**@param const void *s1: the first memory block
+**@param const void *s2: the second memory block
+**@param size_t n: the number of bytes to compare
+**@return the difference between the corresponding bytes
+**of s1 and s2
 */
 
 #include "libft.h"
@@ -44,23 +44,3 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
-
-/*
-#include <stdio.h>
-#include <string.h>
-
-int main() {
-    char str1[] = "James Harden";
-    char str2[] = "James Hajjen";
-    char str3[] = "James Harden";
-
-    printf("Testing ft_memcmp:\n");
-    printf("ft_memcmp(str1, str2, 12): %d\n", ft_memcmp(str1, str2, 12)); 
-    printf("ft_memcmp(str1, str3, 12): %d\n", ft_memcmp(str1, str3, 12)); 
-
-    printf("\nTesting standard memcmp:\n");
-    printf("memcmp(str1, str2, 12): %d\n", memcmp(str1, str2, 12)); 
-    printf("memcmp(str1, str3, 12): %d\n", memcmp(str1, str3, 12));
-
-    return 0;
-}*/

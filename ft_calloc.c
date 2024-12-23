@@ -11,31 +11,29 @@
 /* ************************************************************************** */
 
 /*
-** ft_calloc - Alloue et initialise une zone memoire
+** ft_calloc - Allocates and initializes a memory block
 **
-** Cette fonction alloue une zone memoire suffisante pour contenir
-** `element_count` objets de taille `element_size`. La memoire est
-** initialisee a zero. Si une allocation echoue ou si la taille totale
-** depasse la valeur maximale possible pour un `size_t`, elle retourne `NULL`.
+** This function allocates a memory block large enough to hold
+** `element_count` objects of size `element_size`. The memory is
+** initialized to zero. If the allocation fails or if the total size
+** exceeds the maximum value possible for a `size_t`, it returns `NULL`.
 **
-** @param element_count Le nombre d'elements a allouer.
-** @param element_size La taille de chaque element.
-** @return Un pointeur vers la memoire allouee initialisee a zero,
-** ou `NULL` si l'allocation echoue.
-**/
+** @param element_count The number of elements to allocate.
+** @param element_size The size of each element.
+** @return A pointer to the allocated memory initialized to zero,
+** or `NULL` if the allocation fails.
+*/
 
-#include <stdlib.h>
-#include <stdint.h>
 #include "libft.h"
 
 void	*ft_calloc(size_t element_count, size_t element_size)
 {
 	void	*mem;
+	size_t	overflow_check;
 
-	if (element_size != 0 && element_count > 2147483647 / element_size)
-	{
+	overflow_check = element_count * element_size;
+	if (overflow_check > SIZE_MAX)
 		return (NULL);
-	}
 	mem = malloc(element_count * element_size);
 	if (!mem)
 		return (NULL);
@@ -43,32 +41,3 @@ void	*ft_calloc(size_t element_count, size_t element_size)
 		ft_bzero(mem, (element_count * element_size));
 	return (mem);
 }
-
-/*
-#include <stdio.h>
-#include <limits.h>
-
-int main(){
-
-	size_t element_count = 5;
-	size_t element_size = sizeof(int);
-	int *array = (int *)ft_calloc(element_count, element_size);
-
-	if (array == NULL)
-	{
-		printf("Allocation failed\n");
-		return (1);
-	}
-
-	//pour verifier que tous les elements sont initialises a zero
-	printf("Array initialized with ft_calloc values:\n");
-	for (size_t i = 0; i < element_count; i++)
-	{
-		printf("array[%lu] = %d\n", i, array[i]);
-	}
-
-	//liberer la memoire allouee
-	free(array);
-
-	return (0);
-}*/

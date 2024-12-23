@@ -11,13 +11,13 @@
 /* ************************************************************************** */
 
 /*
-**La fct concatene une chaine source src a une chaine dst
-**de maniere securisee, en limitant la taille totale de dst
-**a un maximum donne soit size
-**@param char *dst la chaine de caracteres destination
-**@param const char *src la chaine de caracteres source
-**@size_t size la taille totale finale max de dst
-**@return la longueur finale theorique de la destination
+**The function concatenates a source string src to a destination string dst
+**safely, limiting the total size of dst to a given maximum, which is size.
+**
+**@param char *dst: the destination string
+**@param const char *src: the source string
+**@param size_t size: the maximum final total size of dst
+**@return: the theoretical final length of the destination string
 */
 
 #include "libft.h"
@@ -48,25 +48,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	dst[i] = '\0';
 	return (src_len + dst_len);
 }
-
-/*
-#include <stdio.h>
-#include <bsd/string.h>
-
-int main(void) {
-    char dst[50] = "Yao";
-    const char *src = " Ming";
-
-    size_t size = sizeof(dst);
-    size_t result = ft_strlcat(dst, src, size);
-
-    printf("Result of ft_strlcat: %zu\n", result);
-    printf("Final dst: %s\n\n", dst);
-
-    char dst_std[50] = "Yao";
-    size_t result_std = strlcat(dst_std, src, size);
-    printf("Result of strlcat: %zu\n", result_std);
-    printf("Final dst: %s\n", dst_std);
-
-    return 0;
-}*/

@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 /*
-**compte le nombre d'elements de la liste
+**Counts the number of elements in the list
 */
 
 #include "libft.h"

@@ -11,13 +11,12 @@
 /* ************************************************************************** */
 
 /*
-**libere la memoire de l'element passe en argument
-**en utilisant la fonction 'del' puis avec free. La memoire
-**de 'next' ne doit pas etre free.
+**Frees the memory of the element passed as an argument
+**using the 'del' function and then with free. The memory
+**of 'next' should not be freed.
 */
 
 #include "libft.h"
-#include <stdlib.h>
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {

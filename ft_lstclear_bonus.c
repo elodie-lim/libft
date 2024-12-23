@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 
 /*
-**Supprime et libere la memoire de l'element passe en parametre
-**et de tous les elements qui suivent, a l'aide de 'del' et de free.
-**Enfin, le pointeur initial doit etre mis a NULL.
+**Deletes and frees the memory of the element passed as a parameter
+**and all the subsequent elements, using 'del' and 'free'.
+**Finally, the initial pointer must be set to NULL.
 */
 
 #include "libft.h"

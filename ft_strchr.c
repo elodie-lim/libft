@@ -11,16 +11,16 @@
 /* ************************************************************************** */
 
 /*
-**La fct cherche la premiere occurence d un caractere
-**donne dans une chaine de caractere et va retourner
-**un pointeur vers cette occurence dans la chaine.
-**Si le caractere n est pas trouve la fct return NULL
-**et la fct prend en compte le \0 en verifiant si
-**ce dernier ==au caractere recherche
-**@param const char *s la chaine source
-**@param int c le caractere a rechercher ds s
-**@return un pointeur vers la premiere occurence du 
-**caractere specifie dans la chaine s
+**The function searches for the first occurrence of a given character
+**in a string and returns a pointer to that occurrence in the string.
+**If the character is not found, the function returns NULL.
+**The function also considers the null terminator (\0) by checking if
+**it matches the searched character.
+**
+**@param const char *s: the source string
+**@param int c: the character to search for in s
+**@return a pointer to the first occurrence of the
+**specified character in the string s
 */
 
 #include "libft.h"
@@ -42,24 +42,3 @@ char	*ft_strchr(const char *s, int c)
 		return (str);
 	return ((void *) 0);
 }
-
-/*
-#include <stdio.h>
-#include "libft.h"
-
-int main(void)
-{
-    char str[] = "Yao Ming is a Chinese basketball player";
-    //char c = 'M';
-	char c = 'Z';
-    
-    char *result = ft_strchr(str, c);
-
-    if (result)
-        printf("The character '%c' was found in the string: 
-		\"%s\"\n", c, result);
-    else
-        printf("The character '%c' was not found in the string.\n", c);
-
-    return 0;
-}*/

@@ -11,16 +11,17 @@
 /* ************************************************************************** */
 
 /*
-**La fct a pour but de copier les n-1 caracteres 
-**de la chaine src dans dst et garantit que la chaine dst
-**se termine bien par \0. la fct check aussi si src completement 
-**copiee ou tronquee.
-**@param char *dst la chaine d arrivee
-**@param char *src la chaine dont on copie les n caracteres
-**@param size_t n les n caracteres a copier
-**@return la longueur de la chaine src (sans compter le \0)
-**et permet de check si la copie a ete tronquee,
-**soit dst trop petite 
+**The function aims to copy the first n-1 characters 
+**from the source string src into the destination string dst 
+**and ensures that dst is properly null-terminated. The function also checks 
+**if the src string is completely copied or truncated.
+**
+**@param char *dst: the destination string
+**@param char *src: the source string from which the n characters are copied
+**@param size_t n: the number of characters to copy
+**@return: the length of the src string (excluding the null terminator)
+**and allows checking if the copy was truncated,
+**either because dst was too small.
 */
 
 #include "libft.h"
@@ -41,25 +42,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	}
 	return (ft_strlen(src));
 }
-
-/*
-#include <stdio.h>
-#include <string.h>
-#include <bsd/string.h>
-
-int main()
-{
-    char src[] = "test";
-    char dst1[20];
-    char dst2[20];
-
-    size_t len1 = ft_strlcpy(dst1, src, sizeof(dst1));
-    printf("ft_strlcpy result: %s\n", dst1);
-    printf("ft_strlcpy returned: %zu\n\n", len1);
-
-    size_t len2 = strlcpy(dst2, src, sizeof(dst2));
-    printf("Standard strlcpy result: %s\n", dst2);
-    printf("strlcpy returned: %zu\n", len2);
-
-    return 0;
-}*/
