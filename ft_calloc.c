@@ -29,15 +29,15 @@
 void	*ft_calloc(size_t element_count, size_t element_size)
 {
 	void	*mem;
-	size_t	overflow_check;
+	size_t	total_size;
 
-	overflow_check = element_count * element_size;
-	if (overflow_check > SIZE_MAX)
+	total_size = element_count * element_size;
+	if (total_size > SIZE_MAX)
 		return (NULL);
-	mem = malloc(element_count * element_size);
+	mem = malloc(total_size);
 	if (!mem)
 		return (NULL);
 	else
-		ft_bzero(mem, (element_count * element_size));
+		ft_bzero(mem, total_size);
 	return (mem);
 }
